@@ -9,6 +9,7 @@ import { PremiumHero } from "./components/PremiumHero";
 import { CinemaNavbar } from "./components/CinemaNavbar";
 import { CinemaFooter } from "./components/CinemaFooter";
 import { AIPersonalizedRecommendations } from "./components/AIPersonalizedRecommendations";
+import { CollectionsTab } from "./components/CollectionsTab";
 import { Search, Film as FilmIcon, Sparkles, Award, Play, Clapperboard, RotateCcw } from "lucide-react";
 
 export default function App() {
@@ -210,6 +211,13 @@ export default function App() {
             toggleFavoriteStar={toggleFavoriteStar}
             favoritesFilms={favoritesFilms}
             toggleFavoriteFilm={toggleFavoriteFilm}
+          />
+        ) : currentTab === "collections" ? (
+          /* COLLECTIONS PREMIUM ARTICLES HUB */
+          <CollectionsTab
+            onSelectStar={handleSelectStar}
+            onPlayTrailer={handlePlayTrailer}
+            setCurrentTab={setCurrentTab}
           />
         ) : (
           /* HOME SCREEN - STARS INDEX && CARDS GRID */

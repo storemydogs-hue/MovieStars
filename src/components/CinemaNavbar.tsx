@@ -128,8 +128,9 @@ export function CinemaNavbar({
         setTimeout(() => el.scrollIntoView({ behavior: "smooth", block: "start" }), 100);
       }
     } else if (tabId === "collections") {
-      setShowCollectionsDropdown(prev => !prev);
-      setShowFavoritesDropdown(false);
+      onSelectStar(null);
+      setSearchQuery("");
+      window.scrollTo({ top: 0, behavior: "smooth" });
     } else if (tabId === "favoris") {
       setShowFavoritesDropdown(prev => !prev);
       setShowCollectionsDropdown(false);
@@ -207,13 +208,13 @@ export function CinemaNavbar({
                 <span>Acteurs</span>
               </button>
 
-              {/* COLLECTIONS WITH DROPDOWN LINK */}
+              {/* COLLECTIONS LINK */}
               <div className="relative">
                 <button
                   onClick={() => handleTabClick("collections")}
                   className={`flex items-center gap-1.5 px-4 py-2 rounded-full text-xs font-bold uppercase tracking-wider transition-all cursor-pointer ${
-                    showCollectionsDropdown
-                      ? "bg-amber-500/20 text-[#F5C518] border border-amber-500/35"
+                    currentTab === "collections"
+                      ? "bg-red-600 text-white shadow-md shadow-red-900/35"
                       : "text-neutral-400 hover:text-white border border-transparent"
                   }`}
                 >
@@ -278,57 +279,7 @@ export function CinemaNavbar({
           </div>
         </div>
 
-        {/* 4. PREMIUM FLOATING DROP DOWN FOR CURATED COLLECTIONS */}
-        <AnimatePresence>
-          {showCollectionsDropdown && (
-            <motion.div
-              initial={{ opacity: 0, y: 15 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: 15 }}
-              className="absolute left-1/2 -translate-x-[60%] sm:-translate-x-[50%] mt-3 w-[290px] sm:w-[380px] bg-[#07070B] border border-neutral-800/80 rounded-2xl p-4 shadow-2xl z-50 text-left"
-            >
-              <div className="flex items-center gap-1.5 border-b border-neutral-900 pb-2.5 mb-3">
-                <Sparkles className="h-4 w-4 text-[#F5C518] animate-spin-slow" />
-                <span className="font-bebas text-lg uppercase tracking-wider text-white">COLLECTIONS RETOURNÉES</span>
-              </div>
-              <div className="space-y-3 font-sans">
-                {collections.map((coll) => (
-                  <div 
-                    key={coll.id}
-                    className="p-3 rounded-xl bg-neutral-950 border border-neutral-900 hover:border-[#F5C518]/45 transition-all group/item cursor-pointer"
-                    onClick={() => {
-                      // Trigger filtered search for the actors in collection!
-                      const actorsNames = coll.actors.map(id => {
-                        const actorObj = starsData.find(s => s.id === id);
-                        return actorObj ? actorObj.name : "";
-                      }).join(" ");
-                      setSearchQuery(actorsNames);
-                      setShowCollectionsDropdown(false);
-                      const el = document.getElementById("popular-actors-list") || document.getElementById("movie-news-section");
-                      if (el) el.scrollIntoView({ behavior: "smooth" });
-                    }}
-                  >
-                    <div className="flex items-center gap-2">
-                      <div className="p-1 rounded bg-neutral-900 flex items-center justify-center">
-                        {coll.icon}
-                      </div>
-                      <h4 className="text-white text-xs font-black uppercase tracking-wider leading-none group-hover/item:text-[#F5C518] transition-colors">
-                        {coll.title}
-                      </h4>
-                    </div>
-                    <p className="text-[10px] text-neutral-400 mt-1 lines-clamp-2 leading-normal">
-                      {coll.description}
-                    </p>
-                    <div className="flex items-center gap-1 text-[9px] font-mono font-bold text-neutral-500 mt-2">
-                      <span>VOIR LES {coll.actors.length} ACTEURS SPÉCIAUX</span>
-                      <ChevronRight className="h-2.5 w-2.5 group-hover/item:translate-x-1 transition-transform" />
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </motion.div>
-          )}
-        </AnimatePresence>
+        {/* 4. CURATED COLLECTIONS MOVED DIRECTLY TO THE COLLECTIONS LINK TAB PAGE */}
 
         {/* 5. GORGEOUS DROP DOWN FOR PERSISTENT FAVORIS LIST */}
         <AnimatePresence>
@@ -505,8 +456,8 @@ export function CinemaNavbar({
               <button
                 onClick={() => handleTabClick("collections")}
                 className={`py-3 rounded-xl text-center text-xs font-bold uppercase tracking-wider transition-colors font-mono relative ${
-                  showCollectionsDropdown
-                    ? "bg-amber-500/20 text-[#F5C518] border border-amber-500/35"
+                  currentTab === "collections"
+                    ? "bg-red-600 text-white shadow-md shadow-red-900/15"
                     : "bg-neutral-950 text-neutral-300 border border-neutral-900/60"
                 }`}
               >
