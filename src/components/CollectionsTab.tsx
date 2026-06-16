@@ -27,6 +27,7 @@ import {
   FileText
 } from "lucide-react";
 import { starsData } from "../data";
+import { getExtraArticles } from "../data/extraArticles";
 
 interface ArticleSchema {
   id: string;
@@ -563,7 +564,8 @@ export function CollectionsTab({ onSelectStar, onPlayTrailer, setCurrentTab, ini
           a: "Nous hébergeons de superbes analyses de combat et profils complets d'acteurs mythiques tels que Bruce Lee, Jackie Chan, Tom Cruise, Jason Statham, Brad Pitt, Robert De Niro et Denzel Washington."
         }
       ]
-    }
+    },
+    ...getExtraArticles(onPlayTrailer, onSelectStar)
   ], [onPlayTrailer, onSelectStar]);
 
   const activeArticle = useMemo(() => {
@@ -643,13 +645,12 @@ export function CollectionsTab({ onSelectStar, onPlayTrailer, setCurrentTab, ini
           {/* GRID OF 3 ARTICLES */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {articles.map((art) => (
-              <div
+              <a
                 key={art.id}
-                onClick={() => {
-                  setSelectedArticleId(art.id);
-                  window.scrollTo({ top: 0, behavior: "smooth" });
-                }}
-                className="group relative flex flex-col overflow-hidden rounded-2xl border border-neutral-900/80 bg-neutral-950/40 hover:bg-[#000]/50 hover:border-amber-500/50 hover:-translate-y-1.5 transition-all duration-300 cursor-pointer shadow-lg h-[480px]"
+                href={`/${art.id}`}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="block group relative flex flex-col overflow-hidden rounded-2xl border border-neutral-900/80 bg-neutral-950/40 hover:bg-[#000]/50 hover:border-amber-500/50 hover:-translate-y-1.5 transition-all duration-300 cursor-pointer shadow-lg h-[480px]"
               >
                 {/* Image cap */}
                 <div className="relative aspect-[16/10] w-full overflow-hidden bg-neutral-950">
@@ -691,7 +692,7 @@ export function CollectionsTab({ onSelectStar, onPlayTrailer, setCurrentTab, ini
                     <ChevronRight className="h-4 w-4 group-hover:translate-x-1 transition-transform" />
                   </div>
                 </div>
-              </div>
+              </a>
             ))}
           </div>
 

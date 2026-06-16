@@ -229,12 +229,8 @@ export function CinemaNavbar({
                 {/* POPUP DROPDOWN MENU */}
                 <div className="absolute top-full left-1/2 -translate-x-1/2 pt-2 w-56 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50">
                   <div className="rounded-2xl border border-neutral-900 bg-[#050505]/95 backdrop-blur-md p-2 shadow-[0_10px_30px_rgba(0,0,0,0.9)] space-y-1 overflow-hidden">
-                    <div className="px-3 py-1.5 border-b border-neutral-900 text-[10px] font-mono text-neutral-500 uppercase tracking-widest font-black text-center">
-                      Articles Premium SEO
-                    </div>
-                    
                     <a
-                      href="/?collection=film-complet"
+                      href="/film-complet"
                       target="_blank"
                       rel="noopener noreferrer"
                       className="block w-full text-center px-3 py-2 rounded-xl text-neutral-300 hover:bg-neutral-900 hover:text-amber-500 transition-colors text-xs font-bold font-mono"
@@ -243,7 +239,7 @@ export function CinemaNavbar({
                     </a>
 
                     <a
-                      href="/?collection=film-streaming-gratuit"
+                      href="/film-streaming-gratuit"
                       target="_blank"
                       rel="noopener noreferrer"
                       className="block w-full text-center px-3 py-2 rounded-xl text-neutral-300 hover:bg-neutral-900 hover:text-amber-500 transition-colors text-xs font-bold font-mono"
@@ -252,12 +248,66 @@ export function CinemaNavbar({
                     </a>
 
                     <a
-                      href="/?collection=films-et-acteurs"
+                      href="/films-et-acteurs"
                       target="_blank"
                       rel="noopener noreferrer"
                       className="block w-full text-center px-3 py-2 rounded-xl text-neutral-300 hover:bg-neutral-900 hover:text-amber-500 transition-colors text-xs font-bold font-mono"
                     >
                       films et acteurs
+                    </a>
+
+                    <a
+                      href="/films-gratuits"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="block w-full text-center px-3 py-2 rounded-xl text-neutral-300 hover:bg-neutral-900 hover:text-amber-500 transition-colors text-xs font-bold font-mono"
+                    >
+                      films gratuits
+                    </a>
+
+                    <a
+                      href="/films-hd"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="block w-full text-center px-3 py-2 rounded-xl text-neutral-300 hover:bg-neutral-900 hover:text-amber-500 transition-colors text-xs font-bold font-mono"
+                    >
+                      films hd
+                    </a>
+
+                    <a
+                      href="/film-youtube"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="block w-full text-center px-3 py-2 rounded-xl text-neutral-300 hover:bg-neutral-900 hover:text-amber-500 transition-colors text-xs font-bold font-mono"
+                    >
+                      film youtube
+                    </a>
+
+                    <a
+                      href="/top-films"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="block w-full text-center px-3 py-2 rounded-xl text-neutral-300 hover:bg-neutral-900 hover:text-amber-500 transition-colors text-xs font-bold font-mono"
+                    >
+                      top films
+                    </a>
+
+                    <a
+                      href="/films-action"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="block w-full text-center px-3 py-2 rounded-xl text-neutral-300 hover:bg-neutral-900 hover:text-amber-500 transition-colors text-xs font-bold font-mono"
+                    >
+                      films action
+                    </a>
+
+                    <a
+                      href="/movie-stars"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="block w-full text-center px-3 py-2 rounded-xl text-neutral-300 hover:bg-neutral-900 hover:text-amber-500 transition-colors text-xs font-bold font-mono"
+                    >
+                      movie stars
                     </a>
                   </div>
                 </div>
@@ -496,32 +546,79 @@ export function CinemaNavbar({
               <div className="col-span-2 space-y-2 border border-neutral-900 bg-neutral-950/40 p-3 rounded-xl mt-1">
                 <div className="flex items-center justify-between text-[10px] font-mono font-bold text-neutral-500 uppercase px-1">
                   <span>Collections</span>
-                  <span className="text-amber-500">Guides SEO</span>
                 </div>
-                <div className="grid grid-cols-1 sm:grid-cols-3 gap-2">
+                <div className="grid grid-cols-2 sm:grid-cols-3 gap-2">
                   <a
-                    href="/?collection=film-complet"
+                    href="/film-complet"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="block text-center py-2 bg-neutral-950 hover:bg-neutral-900 border border-neutral-900 text-[11px] font-mono font-bold text-neutral-300 rounded-lg hover:text-white"
+                    className="block text-center py-2 bg-neutral-950 hover:bg-neutral-900 border border-neutral-900 text-[11px] font-mono font-bold text-neutral-300 rounded-lg hover:text-white truncate px-1"
                   >
                     film complet
                   </a>
                   <a
-                    href="/?collection=film-streaming-gratuit"
+                    href="/film-streaming-gratuit"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="block text-center py-2 bg-[#050505] hover:bg-neutral-900 border border-neutral-900 text-[11px] font-mono font-bold text-neutral-300 rounded-lg hover:text-white"
+                    className="block text-center py-2 bg-[#050505] hover:bg-neutral-900 border border-neutral-900 text-[11px] font-mono font-bold text-neutral-300 rounded-lg hover:text-white truncate px-1"
                   >
                     film streaming gratuit
                   </a>
                   <a
-                    href="/?collection=films-et-acteurs"
+                    href="/films-et-acteurs"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="block text-center py-2 bg-neutral-950 hover:bg-neutral-900 border border-neutral-900 text-[11px] font-mono font-bold text-neutral-300 rounded-lg hover:text-white"
+                    className="block text-center py-2 bg-neutral-950 hover:bg-neutral-900 border border-neutral-900 text-[11px] font-mono font-bold text-neutral-300 rounded-lg hover:text-white truncate px-1"
                   >
                     films et acteurs
+                  </a>
+                  <a
+                    href="/films-gratuits"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="block text-center py-2 bg-neutral-950 hover:bg-neutral-900 border border-neutral-900 text-[11px] font-mono font-bold text-neutral-300 rounded-lg hover:text-white truncate px-1"
+                  >
+                    films gratuits
+                  </a>
+                  <a
+                    href="/films-hd"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="block text-center py-2 bg-[#050505] hover:bg-neutral-900 border border-neutral-900 text-[11px] font-mono font-bold text-neutral-300 rounded-lg hover:text-white truncate px-1"
+                  >
+                    films hd
+                  </a>
+                  <a
+                    href="/film-youtube"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="block text-center py-2 bg-neutral-950 hover:bg-neutral-900 border border-neutral-900 text-[11px] font-mono font-bold text-neutral-300 rounded-lg hover:text-white truncate px-1"
+                  >
+                    film youtube
+                  </a>
+                  <a
+                    href="/top-films"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="block text-center py-2 bg-[#050505] hover:bg-neutral-900 border border-neutral-900 text-[11px] font-mono font-bold text-neutral-300 rounded-lg hover:text-white truncate px-1"
+                  >
+                    top films
+                  </a>
+                  <a
+                    href="/films-action"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="block text-center py-2 bg-neutral-950 hover:bg-neutral-900 border border-neutral-900 text-[11px] font-mono font-bold text-neutral-300 rounded-lg hover:text-white truncate px-1"
+                  >
+                    films action
+                  </a>
+                  <a
+                    href="/movie-stars"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="block text-center py-2 bg-[#050505] hover:bg-neutral-900 border border-neutral-900 text-[11px] font-mono font-bold text-neutral-300 rounded-lg hover:text-white truncate px-1"
+                  >
+                    movie stars
                   </a>
                 </div>
               </div>

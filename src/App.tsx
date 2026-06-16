@@ -19,13 +19,24 @@ export default function App() {
   const [currentTab, setCurrentTab] = useState("accueil");
   const [initialArticleId, setInitialArticleId] = useState<string | null>(null);
 
-  // Monitor deep link URL search query on mount
+  // Monitor deep link URL pathname on mount
   useEffect(() => {
     try {
-      const params = new URLSearchParams(window.location.search);
-      const collectionParam = params.get("collection");
-      if (collectionParam) {
-        setInitialArticleId(collectionParam);
+      const path = window.location.pathname.replace(/^\/+/, "");
+      const validArticles = [
+        "film-complet", 
+        "film-streaming-gratuit", 
+        "films-et-acteurs",
+        "films-gratuits",
+        "films-hd",
+        "film-youtube",
+        "top-films",
+        "films-action",
+        "movie-stars"
+      ];
+
+      if (validArticles.includes(path)) {
+        setInitialArticleId(path);
         setCurrentTab("collections");
       }
     } catch (e) {
