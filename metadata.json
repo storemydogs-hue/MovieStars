@@ -1,0 +1,6 @@
+{
+  "name": "Movie Stars",
+  "description": "An elegant luxury dark-theme app featuring legendary cinema action stars, detailed filmographies, and integrated high-definition YouTube trailers.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

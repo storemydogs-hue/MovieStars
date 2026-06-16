@@ -1,0 +1,190 @@
+@import "tailwindcss";
+
+@theme {
+  --font-bebas: "Bebas Neue", sans-serif;
+  --font-sans: "Inter", sans-serif;
+  
+  --color-gold-imdb: #F5C518;
+  --color-gold-light: #FFD700;
+  --color-bg-primary: #0A0A0F;
+  --color-bg-card: #12121A;
+  --color-bg-card-hover: #1A1A25;
+  --color-border-color: #2D2D3D;
+}
+
+@layer base {
+  :root {
+    --bg-primary: #0A0A0F;
+    --bg-card: #12121A;
+    --bg-card-hover: #1A1A25;
+    --gold: #F5C518;
+    --gold-light: #FFD700;
+    --text-primary: #FFFFFF;
+    --text-secondary: #9CA3AF;
+    --border-color: #2D2D3D;
+  }
+
+  body {
+    background-color: #0A0A0F;
+    color: #FFFFFF;
+    font-family: var(--font-sans);
+  }
+}
+
+/* Bento custom styles */
+.star-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+}
+
+.star-card:hover {
+  border-color: var(--gold);
+  background: var(--bg-card-hover);
+  transform: translateY(-4px);
+}
+
+.gold-text {
+  color: var(--gold);
+}
+
+.gold-border {
+  border-color: var(--gold);
+}
+
+.display-font {
+  font-family: var(--font-bebas), "Helvetica Neue", Arial, sans-serif;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: -0.01em;
+}
+
+.initials-overlay {
+  font-size: 8rem;
+  opacity: 0.05;
+  position: absolute;
+  bottom: -15px;
+  right: -10px;
+  font-weight: 900;
+  line-height: 0.8;
+  pointer-events: none;
+  font-family: var(--font-bebas);
+  user-select: none;
+}
+
+/* Custom golden scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #0A0A0F;
+}
+::-webkit-scrollbar-thumb {
+  background: #2D2D3D;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #F5C518;
+}
+
+/* Base fade-in transitions */
+.fade-in {
+  animation: fadeIn 0.4s ease-out forwards;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Light mode overrides for premium responsive theme switching */
+body.light-mode {
+  background-color: #F3F4F6 !important;
+  color: #111827 !important;
+}
+
+body.light-mode .star-card {
+  background: #FFFFFF !important;
+  border-color: #E5E7EB !important;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
+}
+
+body.light-mode .star-card:hover {
+  border-color: #F5C518 !important;
+  background: #FAFAFA !important;
+  box-shadow: 0 10px 25px rgba(245, 197, 24, 0.12);
+}
+
+body.light-mode h1,
+body.light-mode h2,
+body.light-mode h3,
+body.light-mode h4,
+body.light-mode h5,
+body.light-mode h6 {
+  color: #111827 !important;
+}
+
+body.light-mode p,
+body.light-mode span:not(.text-red-500):not(.text-[#F5C518]):not(.text-[#F5C518]),
+body.light-mode li {
+  color: #374151;
+}
+
+body.light-mode input {
+  background-color: #FFFFFF !important;
+  border-color: #D1D5DB !important;
+  color: #111827 !important;
+}
+
+body.light-mode input::placeholder {
+  color: #9CA3AF !important;
+}
+
+body.light-mode header {
+  background-color: rgba(255, 255, 255, 0.9) !important;
+  border-color: #E5E7EB !important;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05) !important;
+}
+
+body.light-mode header button {
+  color: #374151 !important;
+}
+
+body.light-mode header button:hover {
+  color: #000000 !important;
+}
+
+body.light-mode header span {
+  color: #111827 !important;
+}
+
+body.light-mode .bg-[#050505],
+body.light-mode .bg-neutral-950,
+body.light-mode .bg-neutral-950/90,
+body.light-mode .bg-neutral-950/65 {
+  background-color: #FFFFFF !important;
+  border-color: #E5E7EB !important;
+}
+
+body.light-mode .border-neutral-900,
+body.light-mode .border-neutral-800 {
+  border-color: #E5E7EB !important;
+}
+
+body.light-mode .text-neutral-400 {
+  color: #4B5563 !important;
+}
+
+body.light-mode .text-neutral-500 {
+  color: #6B7280 !important;
+}
+
