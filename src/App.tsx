@@ -17,6 +17,21 @@ export default function App() {
   const [searchQuery, setSearchQuery] = useState("");
   const [activeTrailer, setActiveTrailer] = useState<Film | null>(null);
   const [currentTab, setCurrentTab] = useState("accueil");
+  const [initialArticleId, setInitialArticleId] = useState<string | null>(null);
+
+  // Monitor deep link URL search query on mount
+  useEffect(() => {
+    try {
+      const params = new URLSearchParams(window.location.search);
+      const collectionParam = params.get("collection");
+      if (collectionParam) {
+        setInitialArticleId(collectionParam);
+        setCurrentTab("collections");
+      }
+    } catch (e) {
+      console.error(e);
+    }
+  }, []);
 
   // Cinema Theme State (Mode Sombre / Mode Éclairé)
   const [isDarkMode, setIsDarkMode] = useState<boolean>(() => {
@@ -218,6 +233,7 @@ export default function App() {
             onSelectStar={handleSelectStar}
             onPlayTrailer={handlePlayTrailer}
             setCurrentTab={setCurrentTab}
+            initialArticleId={initialArticleId}
           />
         ) : (
           /* HOME SCREEN - STARS INDEX && CARDS GRID */

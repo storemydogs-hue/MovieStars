@@ -1,4 +1,4 @@
-import React, { useState, useMemo } from "react";
+import React, { useState, useMemo, useEffect } from "react";
 import { motion } from "motion/react";
 import { 
   ArrowLeft, 
@@ -67,12 +67,19 @@ interface CollectionsTabProps {
   onSelectStar: (starId: string | null) => void;
   onPlayTrailer: (film: any) => void;
   setCurrentTab: (tab: string) => void;
+  initialArticleId?: string | null;
 }
 
-export function CollectionsTab({ onSelectStar, onPlayTrailer, setCurrentTab }: CollectionsTabProps) {
-  const [selectedArticleId, setSelectedArticleId] = useState<string | null>(null);
+export function CollectionsTab({ onSelectStar, onPlayTrailer, setCurrentTab, initialArticleId }: CollectionsTabProps) {
+  const [selectedArticleId, setSelectedArticleId] = useState<string | null>(initialArticleId || null);
   const [expandedFaqIndex, setExpandedFaqIndex] = useState<number | null>(null);
   const [copie, setCopie] = useState(false);
+
+  useEffect(() => {
+    if (initialArticleId) {
+      setSelectedArticleId(initialArticleId);
+    }
+  }, [initialArticleId]);
 
   // Helper action to easily play Top Gun Maverick
   const playTopGun = () => {
@@ -116,6 +123,20 @@ export function CollectionsTab({ onSelectStar, onPlayTrailer, setCurrentTab }: C
               <p>
                 Le cinéma moderne souffre parfois d'un syndrome de découpage et de résumés trop rapides. Pourtant, la vision d'un réalisateur ne s'exprime pleinement que lorsque le spectateur regarde le <strong>film complet</strong>, respectant le rythme initialement imposé. Qu'il s'agisse d'un chef-d'œuvre de la Nouvelle Vague comme le cinéma classique français, d'un drame historique de 3 heures ou d'un intense film d'arts martiaux, chaque scène intermédiaire remplit une fonction narrative vitale.
               </p>
+              
+              {/* Figure 1.l */}
+              <div className="my-5 overflow-hidden rounded-2xl border border-neutral-900 bg-[#050505] p-1.5 shadow-md">
+                <img 
+                  src="https://images.unsplash.com/photo-1517604931442-7e0c8ed2963c?q=80&w=800&auto=format&fit=crop" 
+                  alt="Projecteur vintage diffusant de la lumière dans une salle de projection obscure de cinéma réputé" 
+                  referrerPolicy="no-referrer"
+                  className="w-full h-64 sm:h-80 object-cover rounded-xl"
+                />
+                <p className="p-3 text-[11px] text-neutral-400 font-mono italic text-center leading-normal">
+                  <strong>Figure 1.1 :</strong> Projecteur argentique 35mm traditionnel projetant la bobine originale restaurée d'un chef-d'œuvre.
+                </p>
+              </div>
+
               <p>
                 Les versions écourtées ou coupées à la hâte pour les réseaux sociaux éliminent les moments de tension lente, pourtant essentiels pour donner de la force aux explosions d'action ou de drame. Par exemple, apprécier l'esthétique du film culte restauré de <span className="text-[#F5C518] hover:underline cursor-pointer" onClick={() => { onSelectStar("bruce-lee"); window.scrollTo({ top: 0, behavior: "smooth" }); }}>Bruce Lee</span> ou le suspense haletant de <em>Heat</em> avec Robert De Niro requiert de se frotter à la version complète non censurée.
               </p>
@@ -129,12 +150,26 @@ export function CollectionsTab({ onSelectStar, onPlayTrailer, setCurrentTab }: C
         },
         {
           id: "cafe-concentration",
-          title: "2. Le rôle crucial du café et de la concentration pour un visionnage profond",
+          title: "2. Café et concentration : Le rituel sacré pour s'imprégner d'un long-métrage",
           content: (
             <div className="space-y-4">
               <p>
                 Une expérience cinématographique d'envergure demande une attention soutenue. Pour apprécier chaque astuce de mise en scène, chaque subtilité du jeu des acteurs et les rebondissements multiples de l'intrigue, l'alliance entre <strong>café et concentration</strong> devient l'outil secret du cinéphile accompli. 
               </p>
+
+              {/* Figure 1.2 */}
+              <div className="my-5 overflow-hidden rounded-2xl border border-neutral-900 bg-[#050505] p-1.5 shadow-md">
+                <img 
+                  src="https://images.unsplash.com/photo-1509042239860-f550ce710b93?q=80&w=800&auto=format&fit=crop" 
+                  alt="Magnifique tasse de café expresso crémeuse et grains de café torréfiés noirs sur table en bois rustique" 
+                  referrerPolicy="no-referrer"
+                  className="w-full h-64 sm:h-80 object-cover rounded-xl"
+                />
+                <p className="p-3 text-[11px] text-neutral-400 font-mono italic text-center leading-normal">
+                  <strong>Figure 1.2 :</strong> Le double expresso noir fumant, compagnon ultime du cinéphile actif pour booster de hauts niveaux de concentration.
+                </p>
+              </div>
+
               <div className="my-6 p-5 rounded-2xl bg-neutral-900/60 border border-neutral-800 flex items-start gap-4">
                 <Coffee className="h-8 w-8 text-[#F5C518] shrink-0 mt-1" />
                 <div>
@@ -158,6 +193,20 @@ export function CollectionsTab({ onSelectStar, onPlayTrailer, setCurrentTab }: C
               <p>
                 Regarder un film complet implique d'utiliser des canaux légaux respectueux des artistes et ayants droit. En France, plusieurs plateformes agrègent un patrimoine inestimable pour les cinéphiles.
               </p>
+
+              {/* Figure 1.3 */}
+              <div className="my-5 overflow-hidden rounded-2xl border border-neutral-900 bg-[#050505] p-1.5 shadow-md">
+                <img 
+                  src="https://images.unsplash.com/photo-1513106580091-1d82408b8cd6?q=80&w=800&auto=format&fit=crop" 
+                  alt="Écran plat de télévision haut de gamme installé dans un salon moderne diffusant un catalogue de vidéo à la demande" 
+                  referrerPolicy="no-referrer"
+                  className="w-full h-64 sm:h-80 object-cover rounded-xl"
+                />
+                <p className="p-3 text-[11px] text-neutral-400 font-mono italic text-center leading-normal">
+                  <strong>Figure 1.3 :</strong> Plateforme de SVOD moderne affichant les fiches de longs-métrages de patrimoine restaurés légalement.
+                </p>
+              </div>
+
               <p>
                 La plateforme publique d'archives ou le site du <a href="https://www.cnc.fr" target="_blank" rel="noopener noreferrer" className="text-red-500 hover:text-red-400 font-bold inline-flex items-center gap-1">CNC (Centre national du cinéma et de l'image animée) <ExternalLink className="h-3 w-3" /></a> fournissent des listes exceptionnelles d'œuvres cinématographiques libres d'accès, restaurées professionnellement en haute définition. Des services spécialisés tels que MUBI ou Filmo TV se concentrent sur le cinéma d'auteur et indépendant.
               </p>
@@ -229,6 +278,20 @@ export function CollectionsTab({ onSelectStar, onPlayTrailer, setCurrentTab }: C
               <p>
                 Contrairement aux idées reçues, la gratuité n'est pas synonyme de piratage. Le modèle économique de la vidéo en ligne s'est profondément réinventé. Aujourd'hui, trois piliers réglementaires soutiennent le marché du <strong>film streaming gratuit</strong> légitime :
               </p>
+
+              {/* Figure 2.1 */}
+              <div className="my-5 overflow-hidden rounded-2xl border border-neutral-900 bg-[#050505] p-1.5 shadow-md">
+                <img 
+                  src="https://images.unsplash.com/photo-1505686994434-e3cc5abf1330?q=80&w=800&auto=format&fit=crop" 
+                  alt="Un salon confortable configuré comme une salle de home cinéma moderne projetant de la vidéo de haute volée" 
+                  referrerPolicy="no-referrer"
+                  className="w-full h-64 sm:h-80 object-cover rounded-xl"
+                />
+                <p className="p-3 text-[11px] text-neutral-400 font-mono italic text-center leading-normal">
+                  <strong>Figure 2.1 :</strong> Salon de home cinéma chaleureux configuré pour regarder des films légitimement.
+                </p>
+              </div>
+
               <ul className="list-disc pl-6 space-y-2 text-neutral-300">
                 <li>
                   <strong>L'AVOD (Advertising-based Video on Demand) :</strong> Des plateformes majeures comme TF1+, France.tv, Arte, ou Rakuten TV offrent des centaines de films de cinéma en échange de quelques écrans publicitaires courts et non intrusifs.
@@ -254,6 +317,20 @@ export function CollectionsTab({ onSelectStar, onPlayTrailer, setCurrentTab }: C
               <p>
                 Lorsque l'on ne paie pas son ticket de cinéma à l'entrée de la salle obscure, le niveau de distraction à domicile est démultiplié : notifications de smartphone, bruits de voisinage, fatigue physique accumulée. Pour extraire le meilleur parti d'un film en streaming, une configuration mentale spécifique est requise. C'est ici que l'exercice combiné du <strong>café et concentration</strong> déploie ses bienfaits psychologiques.
               </p>
+
+              {/* Figure 2.2 */}
+              <div className="my-5 overflow-hidden rounded-2xl border border-neutral-900 bg-[#050505] p-1.5 shadow-md">
+                <img 
+                  src="https://images.unsplash.com/photo-1447933601403-0c6688de566e?q=80&w=800&auto=format&fit=crop" 
+                  alt="Une tasse de café fumant tenue par deux mains rassurantes illustrant le concept de pleine conscience et d'éveil" 
+                  referrerPolicy="no-referrer"
+                  className="w-full h-64 sm:h-80 object-cover rounded-xl"
+                />
+                <p className="p-3 text-[11px] text-neutral-400 font-mono italic text-center leading-normal">
+                  <strong>Figure 2.2 :</strong> Le choix d'une tasse d'or noir fraîchement moulu pour induire concentration et attention maximale durant les scènes d'action.
+                </p>
+              </div>
+
               <p>
                 Servir une boisson chaude de caractère, telle qu'un café d'origine éthiopienne ou un authentique expresso italien, conditionne votre rituel de visionnage. Ce rituel signale à votre cerveau que la période de divertissement exige de la pleine conscience.
               </p>
@@ -271,6 +348,20 @@ export function CollectionsTab({ onSelectStar, onPlayTrailer, setCurrentTab }: C
               <p>
                 Le paysage médiatique français est l'un des plus riches au monde en matière d'offres numériques gratuites de qualité. France Télévisions et Arte disposent d'interfaces extrêmement fluides où l'on déniche des rétrospectives d'acteurs oscarisés ou des pépites primées à Cannes.
               </p>
+
+              {/* Figure 2.3 */}
+              <div className="my-5 overflow-hidden rounded-2xl border border-neutral-900 bg-[#050505] p-1.5 shadow-md">
+                <img 
+                  src="https://images.unsplash.com/photo-1524985069026-dd778a71c7b4?q=80&w=800&auto=format&fit=crop" 
+                  alt="Cafetière et tasse de café posées devant une tablette affichant un site de streaming de film classique" 
+                  referrerPolicy="no-referrer"
+                  className="w-full h-64 sm:h-80 object-cover rounded-xl"
+                />
+                <p className="p-3 text-[11px] text-neutral-400 font-mono italic text-center leading-normal">
+                  <strong>Figure 2.3 :</strong> Tablette multimédia prête pour diffuser un long-métrage légal de grande renommée à domicile.
+                </p>
+              </div>
+
               <p>
                 Pour le cinéma de genre et les thrillers intenses, la plateforme de SVOD locale propose également des périodes d'essais gratuits amplement suffisantes pour visionner une sélection rigoureuse d'action. En optimisant votre bande passante et en évitant les téléchargements simultanés, vous préservez les détails visuels en haute résolution indispensables aux fresques épiques.
               </p>
@@ -343,6 +434,20 @@ export function CollectionsTab({ onSelectStar, onPlayTrailer, setCurrentTab }: C
               <p>
                 Le cinéma est une symbiose de talents. Un scénariste peut concevoir les meilleures répliques du monde, ou un cascadeur dessiner les duels les plus virtuoses, sans une <strong>star d'action</strong> au magnétisme indéniable pour habiter le cadre, l'impact spirituel restera stérile. Les collaborations légendaires de l'histoire (de De Niro avec Scorsese à Jason Statham avec Guy Ritchie) démontrent comment un acteur devient le prolongement organique du réalisateur culte.
               </p>
+
+              {/* Figure 3.1 */}
+              <div className="my-5 overflow-hidden rounded-2xl border border-neutral-900 bg-[#050505] p-1.5 shadow-md">
+                <img 
+                  src="https://images.unsplash.com/photo-1460881680858-30d872d5b530?q=80&w=800&auto=format&fit=crop" 
+                  alt="Caméra de cinéma sur rail capturant la prestation de comédiens d'action épiques" 
+                  referrerPolicy="no-referrer"
+                  className="w-full h-64 sm:h-80 object-cover rounded-xl"
+                />
+                <p className="p-3 text-[11px] text-neutral-400 font-mono italic text-center leading-normal">
+                  <strong>Figure 3.1 :</strong> Tournage professionnel d'une scène d'action à grand budget avec caméras stabilisées sur rails.
+                </p>
+              </div>
+
               <p>
                 Prenez l'exemple majeur de <span className="text-[#F5C518] hover:underline cursor-pointer" onClick={() => { onSelectStar("robert-de-niro"); window.scrollTo({ top: 0, behavior: "smooth" }); }}>Robert De Niro</span> dans <em>Taxi Driver</em> ou <em>Raging Bull</em>. Sa préparation monacale, typique de la rigueur de la méthode de l'Actors Studio, transcende la pellicule pour imprégner son rôle emblématique. Le public ne voit pas un comédien déclamer des textes froids, il est confronté à l'incarnation d'un homme brisé.
               </p>
@@ -360,6 +465,20 @@ export function CollectionsTab({ onSelectStar, onPlayTrailer, setCurrentTab }: C
               <p>
                 Ce qui dissocie les grands <strong>films et acteurs</strong> d'action du reste de la production, c'est leur degré d'implication physique. Le public ressent instantanément si l'acteur exécute lui-même sa cascade d'action ou s'il se repose sur des effets numériques d'incrustation sur fond vert. 
               </p>
+
+              {/* Figure 3.2 */}
+              <div className="my-5 overflow-hidden rounded-2xl border border-neutral-900 bg-[#050505] p-1.5 shadow-md">
+                <img 
+                  src="https://images.unsplash.com/photo-1536440136628-849c177e76a1?q=80&w=800&auto=format&fit=crop" 
+                  alt="Dispositif de projecteur de cinéma et ambiance de tournage intense en arrière-plan d'acteurs d'action accomplissant des prouesses physiques" 
+                  referrerPolicy="no-referrer"
+                  className="w-full h-64 sm:h-80 object-cover rounded-xl"
+                />
+                <p className="p-3 text-[11px] text-neutral-400 font-mono italic text-center leading-normal">
+                  <strong>Figure 3.2 :</strong> Projecteur focalisant la lumière sur le ring ou la zone de combat scénarisée, là où l'art corporel s'exprime.
+                </p>
+              </div>
+
               <p>
                 Les figures représentées au cœur de notre application témoignent de cette quête de réalisme absolu :
               </p>
@@ -383,8 +502,22 @@ export function CollectionsTab({ onSelectStar, onPlayTrailer, setCurrentTab }: C
           content: (
             <div className="space-y-4">
               <p>
-                On l'oublie trop souvent, mais estimer à sa juste valeur la virtuosité d'une performance théâtrale requiert une acuité mentale optimale du spectateur. Analyser comment les émotions d'un personnage se traduisent à l'écran — une simple dilation de pupille de <span className="text-[#F5C518] hover:underline cursor-pointer" onClick={() => { onSelectStar("denzel-washington"); window.scrollTo({ top: 0, behavior: "smooth" }); }}>Denzel Washington</span> dans <em>Training Day</em> ou un glissement d'épaule de <span className="text-[#F5C518] hover:underline cursor-pointer" onClick={() => { onSelectStar("brad-pitt"); window.scrollTo({ top: 0, behavior: "smooth" }); }}>Brad Pitt</span> dans <em>Fight Club</em> — relève d'une fine observation intellectuelle.
+                On l'oublie trop souvent, mais estimer à sa juste valeur la virtuosité d'une performance théâtrale requiert une acuité mentale optimale du spectateur. Analyser comment les émotions d'un personnage se traduisent à l'écran — une simple dilatation de pupille de <span className="text-[#F5C518] hover:underline cursor-pointer" onClick={() => { onSelectStar("denzel-washington"); window.scrollTo({ top: 0, behavior: "smooth" }); }}>Denzel Washington</span> dans <em>Training Day</em> ou un glissement d'épaule de <span className="text-[#F5C518] hover:underline cursor-pointer" onClick={() => { onSelectStar("brad-pitt"); window.scrollTo({ top: 0, behavior: "smooth" }); }}>Brad Pitt</span> dans <em>Fight Club</em> — relève d'une fine observation intellectuelle.
               </p>
+
+              {/* Figure 3.3 */}
+              <div className="my-5 overflow-hidden rounded-2xl border border-neutral-900 bg-[#050505] p-1.5 shadow-md">
+                <img 
+                  src="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?q=80&w=800&auto=format&fit=crop" 
+                  alt="Une élégante tasse de café d'exception torréfié à point fumant devant un carnet de notes de critique de cinéma" 
+                  referrerPolicy="no-referrer"
+                  className="w-full h-64 sm:h-80 object-cover rounded-xl"
+                />
+                <p className="p-3 text-[11px] text-neutral-400 font-mono italic text-center leading-normal">
+                  <strong>Figure 3.3 :</strong> L'indispensable boisson stimulante pour maintenir éveillée la concentration du critique d'art dramatique.
+                </p>
+              </div>
+
               <p>
                 C'est là que réside l'intérêt de cultiver un climat propice de <strong>café et concentration</strong>. Boire un nectar d'or noir favorise les ondes cérébrales de veille alpha et bêta, vous permettant de démythifier la structure invisible du montage. Vous repérez les coupes invisibles, comprenez où se situent les points de rupture physiques de la performance dramatique et gagnez une profonde culture critique du cinéma moderne.
               </p>
