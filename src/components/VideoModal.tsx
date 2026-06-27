@@ -62,7 +62,7 @@ export function VideoModal({ film, onClose }: VideoModalProps) {
         {/* Video Embed IFrame with strict 16:9 aspect ratio */}
         <div className="relative aspect-video w-full overflow-hidden rounded-xl border border-neutral-850 bg-neutral-950 shadow-[0_20px_50px_rgba(245,197,24,0.08)]">
           <iframe
-            src={`https://www.youtube.com/embed/${film.youtubeId}?autoplay=1&rel=0&modestbranding=1`}
+            src={`https://www.youtube.com/embed/${film.youtubeId}?autoplay=1&rel=0&modestbranding=1${film.start ? `&start=${film.start}` : ""}`}
             title={`${film.title} Trailer`}
             width="100%"
             height="100%"

@@ -60,31 +60,16 @@ export const starsData: Star[] = [
     bio: "Star incontournable d'Hollywood et producteur américain emblématique. Réputé pour son dévouement absolu au grand écran et sa réalisation de cascades mortellement audacieuses par lui-même. De Top Gun à Mission: Impossible, il symbolise le cinéma d'action moderne.",
     films: [
       {
-        title: "The Return of the mommy",
-        year: 2017,
-        genre: "Aventure / Action",
-        youtubeId: "AlNld97rTYo",
-        duration: "1h 50m",
-        poster: "/images/the_mummy_return.jpg"
+        title: "Legend",
+        year: 1985,
+        genre: "Fantastique",
+        youtubeId: "9LBuhP2Pt7Y",
+        start: 828,
+        duration: "1h 30m",
+        poster: "/images/legend.png"
       },
       {
-        title: "Mission Impossible",
-        year: 1996,
-        genre: "Espionnage",
-        youtubeId: "XHGgNH2Qs5c",
-        duration: "1h 50m",
-        poster: "https://img.youtube.com/vi/XHGgNH2Qs5c/maxresdefault.jpg"
-      },
-      {
-        title: "Alone in Oblivion",
-        year: 2013,
-        genre: "S-F / Action",
-        youtubeId: "Y86hf5SFAMM",
-        duration: "2h 04m",
-        poster: "https://img.youtube.com/vi/Y86hf5SFAMM/maxresdefault.jpg"
-      },
-      {
-        title: "Top Gun-Maverick",
+        title: "Top Gun: Maverick",
         year: 2022,
         genre: "Action",
         youtubeId: "RW6BqtVoIqI",
@@ -92,12 +77,28 @@ export const starsData: Star[] = [
         poster: "https://img.youtube.com/vi/RW6BqtVoIqI/maxresdefault.jpg"
       },
       {
-        title: "Legend",
-        year: 1985,
-        genre: "Fantastique",
-        youtubeId: "9LBuhP2Pt7Y",
-        duration: "1h 30m",
-        poster: "/images/legend.jpg"
+        title: "Mission: Impossible",
+        year: 1996,
+        genre: "Espionnage",
+        youtubeId: "XHGgNH2Qs5c",
+        duration: "1h 50m",
+        poster: "https://img.youtube.com/vi/XHGgNH2Qs5c/maxresdefault.jpg"
+      },
+      {
+        title: "Oblivion",
+        year: 2013,
+        genre: "S-F / Action",
+        youtubeId: "Y86hf5SFAMM",
+        duration: "2h 04m",
+        poster: "https://img.youtube.com/vi/Y86hf5SFAMM/maxresdefault.jpg"
+      },
+      {
+        title: "La Momie",
+        year: 2017,
+        genre: "Aventure / Action",
+        youtubeId: "AlNld97rTYo",
+        duration: "1h 50m",
+        poster: "/images/the_mummy_return.jpg"
       }
     ]
   },

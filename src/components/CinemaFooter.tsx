@@ -43,7 +43,7 @@ export function CinemaFooter({
   setIsDarkMode
 }: CinemaFooterProps) {
   // Modal states for requested pages
-  const [activeModal, setActiveModal] = useState<"terms" | "about" | "contact" | null>(null);
+  const [activeModal, setActiveModal] = useState<"terms" | "about" | "contact" | "privacy" | null>(null);
   
   // Contact Form states
   const [contactName, setContactName] = useState("");
@@ -276,6 +276,14 @@ export function CinemaFooter({
               </button>
               <span>•</span>
               <button 
+                onClick={() => setActiveModal("privacy")}
+                className="hover:text-[#F5C518] transition-colors cursor-pointer flex items-center gap-1.5 uppercase tracking-wider text-[11px]"
+              >
+                <ShieldCheck className="h-3.5 w-3.5 text-green-500" />
+                <span>Privacy Policy</span>
+              </button>
+              <span>•</span>
+              <button 
                 onClick={() => setActiveModal("terms")}
                 className="hover:text-[#F5C518] transition-colors cursor-pointer flex items-center gap-1.5 uppercase tracking-wider text-[11px]"
               >
@@ -324,6 +332,43 @@ export function CinemaFooter({
               >
                 <X className="h-4 w-4" />
               </button>
+
+              {/* PRIVACY POLICY TEMPLATE */}
+              {activeModal === "privacy" && (
+                <div className="space-y-4">
+                  <div className="flex items-center gap-2 border-b border-neutral-900 pb-3">
+                    <ShieldCheck className="h-5 w-5 text-green-500" />
+                    <h3 className="font-bebas text-2xl tracking-wider text-white uppercase">PRIVACY POLICY</h3>
+                  </div>
+                  
+                  <div className="space-y-3 text-xs text-neutral-400 leading-relaxed max-h-[50vh] overflow-y-auto pr-2 scrollbar-none font-sans">
+                    <p className="font-bold text-neutral-200 italic">Dernière mise à jour : {new Date().toLocaleDateString('fr-FR')}</p>
+                    <p>
+                      Chez <strong>Movie Stars Archive</strong>, accessible via Movie Stars, l'une de nos principales priorités est la protection de la vie privée de nos visiteurs. Ce document de politique de confidentialité contient les types d'informations qui sont collectées et enregistrées par Movie Stars Archive et comment nous les utilisons.
+                    </p>
+                    
+                    <h4 className="font-bold text-[#F5C518] mt-4 uppercase text-[10px] tracking-widest">Collecte de données</h4>
+                    <p>
+                      Nous ne collectons aucune information personnelle identifiable lors de votre simple navigation. Vos préférences (comme vos acteurs favoris ou votre historique de visionnage) sont stockées exclusivement dans le <strong>stockage local de votre navigateur</strong> (localStorage). Aucune donnée n'est transmise à nos serveurs.
+                    </p>
+                    
+                    <h4 className="font-bold text-[#F5C518] mt-4 uppercase text-[10px] tracking-widest">Fichiers journaux (Log Files)</h4>
+                    <p>
+                      Comme beaucoup d'autres sites Web, Movie Stars Archive utilise des fichiers journaux. Ces fichiers enregistrent simplement les visiteurs lorsqu'ils visitent des sites Web. Les informations contenues dans les fichiers journaux comprennent les adresses de protocole Internet (IP), le type de navigateur, le fournisseur de services Internet (FAI), l'horodatage, les pages de renvoi/sortie et éventuellement le nombre de clics.
+                    </p>
+                    
+                    <h4 className="font-bold text-[#F5C518] mt-4 uppercase text-[10px] tracking-widest">Services tiers (YouTube)</h4>
+                    <p>
+                      Notre plateforme utilise l'API YouTube et le lecteur intégré YouTube. En utilisant notre service, vous acceptez également les conditions d'utilisation de YouTube et la politique de confidentialité de Google. YouTube peut collecter des informations sur votre utilisation de leur lecteur selon leurs propres politiques.
+                    </p>
+                    
+                    <h4 className="font-bold text-[#F5C518] mt-4 uppercase text-[10px] tracking-widest">Contact</h4>
+                    <p>
+                      Si vous utilisez notre formulaire de contact, les informations fournies (nom, email, message) ne sont utilisées que pour vous répondre directement via Gmail. Nous ne vendons ni ne partageons vos adresses email avec des tiers.
+                    </p>
+                  </div>
+                </div>
+              )}
 
               {/* TERMS OF SERVICE TEMPLATE */}
               {activeModal === "terms" && (

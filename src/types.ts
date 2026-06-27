@@ -5,6 +5,7 @@ export interface Film {
   youtubeId: string;
   poster?: string;
   duration?: string;
+  start?: number;
 }
 
 export interface Star {

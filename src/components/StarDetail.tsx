@@ -182,9 +182,9 @@ const STAR_GALLERIES: Record<string, { url: string; title: string; year: string 
   ],
   "tom-cruise": [
     { url: "https://img.youtube.com/vi/RW6BqtVoIqI/hqdefault.jpg", title: "Top Gun: Maverick - Vol rasant en Razor Canyon", year: "2022" },
-    { url: "https://img.youtube.com/vi/XHGgNH2Qs5c/hqdefault.jpg", title: "Mission Invisible - Infiltration suspendue au plafond", year: "1996" },
+    { url: "https://img.youtube.com/vi/XHGgNH2Qs5c/hqdefault.jpg", title: "Mission: Impossible - Infiltration suspendue au plafond", year: "1996" },
     { url: "https://img.youtube.com/vi/Y86hf5SFAMM/hqdefault.jpg", title: "Oblivion - Survol des terres dévastées", year: "2013" },
-    { url: "https://img.youtube.com/vi/AlNld97rTYo/hqdefault.jpg", title: "La Momie - Cascade en gravité zéro en avion cargo", year: "2017" }
+    { url: "/images/legend.png", title: "Legend - L'épopée fantastique de Ridley Scott", year: "1985" }
   ],
   "bruce-lee": [
     { url: "https://img.youtube.com/vi/VtK05lU9Rto/hqdefault.jpg", title: "Opération Dragon - Duel fatal dans la salle des miroirs", year: "1973" },
